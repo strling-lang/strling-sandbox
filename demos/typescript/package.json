@@ -1,0 +1,18 @@
+{
+  "name": "strling-sandbox-typescript-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "export": "node dist/export-semver.js",
+    "verify": "node dist/verify-semver.js"
+  },
+  "dependencies": {
+    "@strling-lang/strling": "^3.0.0-alpha"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "typescript": "^5.9.2"
+  }
+}

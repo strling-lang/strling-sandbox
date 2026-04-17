@@ -1,0 +1,61 @@
+name: Sandbox CI
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - "feature/**"
+  pull_request:
+
+jobs:
+  typescript-demo:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: demos/typescript
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: bash bootstrap.sh
+
+      - name: Build and typecheck
+        run: |
+          npm run build
+          npm run typecheck
+
+      - name: Export canonical AST
+        run: npm run export
+
+      - name: Verify sample set
+        run: npm run verify
+
+      - name: Ensure exported artifact is committed
+        run: git diff --exit-code -- ../../patterns/semver.ast.json
+
+  python-demo:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: demos/python
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: bash bootstrap.sh
+
+      - name: Consume shared AST
+        run: .venv/bin/python consume_semver_ast.py

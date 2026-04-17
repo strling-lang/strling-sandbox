@@ -1,0 +1,266 @@
+{
+  "version": "1.0.0",
+  "exportedBy": "demos/typescript/src/export-semver.ts",
+  "regex": "^(?<major>0|[1-9]\\d*)\\.(?<minor>0|[1-9]\\d*)\\.(?<patch>0|[1-9]\\d*)(?:-(?<prerelease>[A-Za-z\\d\\-]+(?:\\.[A-Za-z\\d\\-]+)*))?$",
+  "flags": {
+    "ignoreCase": false,
+    "multiline": false,
+    "dotAll": false,
+    "unicode": false,
+    "extended": false
+  },
+  "root": {
+    "type": "Sequence",
+    "parts": [
+      {
+        "type": "Anchor",
+        "at": "Start"
+      },
+      {
+        "type": "Group",
+        "capturing": true,
+        "body": {
+          "type": "Alternation",
+          "alternatives": [
+            {
+              "type": "Literal",
+              "value": "0"
+            },
+            {
+              "type": "Sequence",
+              "parts": [
+                {
+                  "type": "CharacterClass",
+                  "negated": false,
+                  "members": [
+                    {
+                      "type": "Range",
+                      "from": "1",
+                      "to": "9"
+                    }
+                  ]
+                },
+                {
+                  "type": "Quantifier",
+                  "target": {
+                    "type": "CharacterClass",
+                    "negated": false,
+                    "members": [
+                      {
+                        "type": "Escape",
+                        "kind": "digit"
+                      }
+                    ]
+                  },
+                  "min": 0,
+                  "max": null
+                }
+              ]
+            }
+          ]
+        },
+        "name": "major"
+      },
+      {
+        "type": "Literal",
+        "value": "."
+      },
+      {
+        "type": "Group",
+        "capturing": true,
+        "body": {
+          "type": "Alternation",
+          "alternatives": [
+            {
+              "type": "Literal",
+              "value": "0"
+            },
+            {
+              "type": "Sequence",
+              "parts": [
+                {
+                  "type": "CharacterClass",
+                  "negated": false,
+                  "members": [
+                    {
+                      "type": "Range",
+                      "from": "1",
+                      "to": "9"
+                    }
+                  ]
+                },
+                {
+                  "type": "Quantifier",
+                  "target": {
+                    "type": "CharacterClass",
+                    "negated": false,
+                    "members": [
+                      {
+                        "type": "Escape",
+                        "kind": "digit"
+                      }
+                    ]
+                  },
+                  "min": 0,
+                  "max": null
+                }
+              ]
+            }
+          ]
+        },
+        "name": "minor"
+      },
+      {
+        "type": "Literal",
+        "value": "."
+      },
+      {
+        "type": "Group",
+        "capturing": true,
+        "body": {
+          "type": "Alternation",
+          "alternatives": [
+            {
+              "type": "Literal",
+              "value": "0"
+            },
+            {
+              "type": "Sequence",
+              "parts": [
+                {
+                  "type": "CharacterClass",
+                  "negated": false,
+                  "members": [
+                    {
+                      "type": "Range",
+                      "from": "1",
+                      "to": "9"
+                    }
+                  ]
+                },
+                {
+                  "type": "Quantifier",
+                  "target": {
+                    "type": "CharacterClass",
+                    "negated": false,
+                    "members": [
+                      {
+                        "type": "Escape",
+                        "kind": "digit"
+                      }
+                    ]
+                  },
+                  "min": 0,
+                  "max": null
+                }
+              ]
+            }
+          ]
+        },
+        "name": "patch"
+      },
+      {
+        "type": "Quantifier",
+        "target": {
+          "type": "Sequence",
+          "parts": [
+            {
+              "type": "Literal",
+              "value": "-"
+            },
+            {
+              "type": "Group",
+              "capturing": true,
+              "body": {
+                "type": "Sequence",
+                "parts": [
+                  {
+                    "type": "Quantifier",
+                    "target": {
+                      "type": "CharacterClass",
+                      "negated": false,
+                      "members": [
+                        {
+                          "type": "Range",
+                          "from": "A",
+                          "to": "Z"
+                        },
+                        {
+                          "type": "Range",
+                          "from": "a",
+                          "to": "z"
+                        },
+                        {
+                          "type": "Escape",
+                          "kind": "digit"
+                        },
+                        {
+                          "type": "Literal",
+                          "value": "-"
+                        }
+                      ]
+                    },
+                    "min": 1,
+                    "max": null
+                  },
+                  {
+                    "type": "Quantifier",
+                    "target": {
+                      "type": "Sequence",
+                      "parts": [
+                        {
+                          "type": "Literal",
+                          "value": "."
+                        },
+                        {
+                          "type": "Quantifier",
+                          "target": {
+                            "type": "CharacterClass",
+                            "negated": false,
+                            "members": [
+                              {
+                                "type": "Range",
+                                "from": "A",
+                                "to": "Z"
+                              },
+                              {
+                                "type": "Range",
+                                "from": "a",
+                                "to": "z"
+                              },
+                              {
+                                "type": "Escape",
+                                "kind": "digit"
+                              },
+                              {
+                                "type": "Literal",
+                                "value": "-"
+                              }
+                            ]
+                          },
+                          "min": 1,
+                          "max": null
+                        }
+                      ]
+                    },
+                    "min": 0,
+                    "max": null
+                  }
+                ]
+              },
+              "name": "prerelease"
+            }
+          ]
+        },
+        "min": 0,
+        "max": 1
+      },
+      {
+        "type": "Anchor",
+        "at": "End"
+      }
+    ]
+  },
+  "warnings": [],
+  "errors": []
+}

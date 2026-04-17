@@ -1,0 +1,32 @@
+{
+  "valid": [
+    {
+      "value": "0.1.0",
+      "groups": {
+        "major": "0",
+        "minor": "1",
+        "patch": "0",
+        "prerelease": null
+      }
+    },
+    {
+      "value": "1.2.3-alpha",
+      "groups": {
+        "major": "1",
+        "minor": "2",
+        "patch": "3",
+        "prerelease": "alpha"
+      }
+    },
+    {
+      "value": "2.10.7-rc.1",
+      "groups": {
+        "major": "2",
+        "minor": "10",
+        "patch": "7",
+        "prerelease": "rc.1"
+      }
+    }
+  ],
+  "invalid": ["01.2.3", "1.02.3", "1.2", "1.2.3-", "1.2.3+build"]
+}
